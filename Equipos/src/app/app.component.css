@@ -1,10 +1,19 @@
 .eqMain{
+    position: absolute;
     display: grid;
     grid-template-areas:
     'headerTeam'
     'inputTeam'
     'listTeam';
   grid-gap: 10px;
-  background-color: #2196F3;
+  border: 0.2em red solid;  
+  background-color: rgb(238, 177, 177);
   padding: 10px;
+  height: 95%;
+  width: 95%;
+  margin:auto;
+  left:0;
+  right:0;
+  top:0;
+  bottom: 0;
 }
