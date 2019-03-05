@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cm-head-equipos.component.css']
 })
 export class CmHeadEquiposComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+
   }
 
 }
