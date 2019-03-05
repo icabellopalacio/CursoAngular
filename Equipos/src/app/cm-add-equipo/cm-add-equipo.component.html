@@ -9,22 +9,26 @@
   </div>
   <div>
       <label for="EquipoSocios">Nº Socios</label>
-      <input name="EquipoSocios" type="text" [(ngModel)] = "varEquipo.Socios" >
+      <input name="EquipoSocios" type="number" [(ngModel)] = "varEquipo.Socios" >
   </div>
   <div>
       <label for="EquipoFundacion">Fundación</label>
-      <input name="EquipoFundacion" type="text" [(ngModel)] = "varEquipo.Fundacion" >
+      <input name="EquipoFundacion" type="date" class="date" [(ngModel)] = "varEquipo.Fundacion" >
   </div>
   <div>
       <button (click)="setEquipo()">Guardar Equipo</button>   
   </div>
  
 </div>
-
-<div *ngFor="let addEquipo of lstEquipos"
-     [ngClass]="numSocios(addEquipo.Socios)" >
-  <div>Nombre: {{addEquipo.Nombre}}</div>
-  <div>Cuidad: {{addEquipo.Ciudad}}</div>
-  <div>Socios: {{addEquipo.Socios}}</div>
-  <div>Fundacion: {{addEquipo.Fundacion}}</div>
+<div *ngIf="lstEquipos.lenght > 0 ">
+    <div *ngFor="let addEquipo of lstEquipos"
+    [ngClass]="numSocios(addEquipo.Socios)">
+      <div>Nombre: {{addEquipo.Nombre}}</div>
+      <div>Cuidad: {{addEquipo.Ciudad}}</div>
+      <div>Socios: {{addEquipo.Socios}}</div>
+      <div>Fundacion: {{addEquipo.Fundacion}}</div>
+  </div>
+</div>
+<div *ngIf="lstEquipos.lenght === 0 ">
+  No hay EquipoSocios
 </div>

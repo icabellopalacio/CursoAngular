@@ -11,11 +11,16 @@
     padding:  1.2em;
     width:15%;
   }
+  .date{
+    width:150px !important ;
+
+}
 .myForm > div > input{
     border: none;
     padding: 1em;
     width:80%;
-  }
+}
+
 .muchosSocios{
     color:red;
 }

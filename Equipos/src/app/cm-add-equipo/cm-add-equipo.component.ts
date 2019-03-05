@@ -25,9 +25,9 @@ export class CmAddEquipoComponent implements OnInit {
     }
   }
   numSocios(parNumSocios: number ): string {
-      if (parNumSocios > 1000) {
-        return 'muchosSocios';
-      }
+       if (parNumSocios > 1000) {
+          return 'muchosSocios';
+       }
   }
 
 }
