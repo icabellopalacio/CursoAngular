@@ -19,13 +19,15 @@ export class CmAddEquipoComponent implements OnInit {
   }
 
   setEquipo() {
-    if (this.varEquipo.Nombre !== '' && this.varEquipo.Ciudad !== '' && this.varEquipo.Socios > 0){
+    if (this.varEquipo.Nombre !== '' && this.varEquipo.Ciudad !== '' && this.varEquipo.Socios > 0) {
       this.lstEquipos.push(this.varEquipo);
       this.varEquipo = new Equipo('', '', null, null);
     }
   }
+  
   numSocios(parNumSocios: number ): string {
-       if (parNumSocios > 1000) {
+    console.log(parNumSocios);
+    if (parNumSocios > 1000) {
           return 'muchosSocios';
        }
   }

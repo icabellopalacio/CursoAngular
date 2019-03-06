@@ -1,34 +1,37 @@
-<div class="myForm">
-  <div>
-      <label for="EquipoNombre">Nombre</label>
-      <input name="EquipoNombre" type="text" [(ngModel)] = "varEquipo.Nombre" >
+<div class="jumbotron col-6 mx-auto">
+  <div> 
+    <div  class="form-group">
+        <label for="EquipoNombre">Nombre</label>
+        <input name="EquipoNombre" type="text" [(ngModel)] = "varEquipo.Nombre"  class="form-control col-6">
+    </div>
+    <div  class="form-group">
+        <label for="EquipoCiudad">Ciudad</label>
+        <input name="EquipoCiudad" type="text" [(ngModel)] = "varEquipo.Ciudad" class="form-control col-6">
+    </div>
+    <div  class="form-group">
+        <label for="EquipoSocios" >Nº Socios</label>
+        <input name="EquipoSocios" type="number" [(ngModel)] = "varEquipo.Socios" class="form-control col-3">
+    </div>
+    <div  class="form-group">
+        <label for="EquipoFundacion">Fundación</label>
+        <input name="EquipoFundacion" type="date" class="date" [(ngModel)] = "varEquipo.Fundacion" class="form-control col-4">
+    </div>
+    <div>
+        <button (click)="setEquipo()">Guardar Equipo</button>   
+    </div>
   </div>
-  <div>
-      <label for="EquipoCiudad">Ciudad</label>
-      <input name="EquipoCiudad" type="text" [(ngModel)] = "varEquipo.Ciudad" >
-  </div>
-  <div>
-      <label for="EquipoSocios">Nº Socios</label>
-      <input name="EquipoSocios" type="number" [(ngModel)] = "varEquipo.Socios" >
-  </div>
-  <div>
-      <label for="EquipoFundacion">Fundación</label>
-      <input name="EquipoFundacion" type="date" class="date" [(ngModel)] = "varEquipo.Fundacion" >
-  </div>
-  <div>
-      <button (click)="setEquipo()">Guardar Equipo</button>   
-  </div>
- 
-</div>
-<div *ngIf="lstEquipos.lenght > 0 ">
-    <div *ngFor="let addEquipo of lstEquipos"
-    [ngClass]="numSocios(addEquipo.Socios)">
-      <div>Nombre: {{addEquipo.Nombre}}</div>
-      <div>Cuidad: {{addEquipo.Ciudad}}</div>
-      <div>Socios: {{addEquipo.Socios}}</div>
-      <div>Fundacion: {{addEquipo.Fundacion}}</div>
-  </div>
-</div>
-<div *ngIf="lstEquipos.lenght === 0 ">
-  No hay EquipoSocios
+   <div *ngIf="lstEquipos.length > 0 "> 
+      <div *ngFor="let addEquipo of lstEquipos"
+        [ngClass]="numSocios(addEquipo.Socios)"
+        class="list-group">
+        <div class="list-group-item">Nombre: {{addEquipo.Nombre | uppercase}}</div>
+        <div class="list-group-item">Cuidad: {{addEquipo.Ciudad}}</div>
+        <div class="list-group-item">Socios: {{addEquipo.Socios | number:'1.0-0'}}</div>
+        <div class="list-group-item">Fundacion: {{addEquipo.Fundacion | date: 'sort'}}</div>
+     </div>
+  </div> 
+  <div *ngIf="lstEquipos.length === 0 ">
+    No hay EquipoSocios
+  </div> 
+  
 </div>
