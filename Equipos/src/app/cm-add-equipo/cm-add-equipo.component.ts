@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Equipo } from '../Models/Equipo';
 
 @Component({
@@ -11,11 +11,13 @@ export class CmAddEquipoComponent implements OnInit {
    // Variables
    varEquipo: Equipo;
    lstEquipos: Array<Equipo>;
+   filtroEquipos: string;
   constructor() { }
 
   ngOnInit() {
     this.varEquipo = new Equipo('', '', null, null);
     this.lstEquipos = [];
+    this.filtroEquipos = '';
   }
 
   setEquipo() {
@@ -24,7 +26,7 @@ export class CmAddEquipoComponent implements OnInit {
       this.varEquipo = new Equipo('', '', null, null);
     }
   }
-  
+
   numSocios(parNumSocios: number ): string {
     console.log(parNumSocios);
     if (parNumSocios > 1000) {

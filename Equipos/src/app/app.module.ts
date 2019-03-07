@@ -5,12 +5,14 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CmAddEquipoComponent } from './cm-add-equipo/cm-add-equipo.component';
 import { CmHeadEquiposComponent } from './cm-head-equipos/cm-head-equipos.component';
+import { TeamFilterPipe } from './Pipes/team-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CmAddEquipoComponent,
-    CmHeadEquiposComponent
+    CmHeadEquiposComponent,
+    TeamFilterPipe
   ],
   imports: [
     BrowserModule,

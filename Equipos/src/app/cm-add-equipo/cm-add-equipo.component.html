@@ -1,6 +1,6 @@
 <div class="jumbotron col-6 mx-auto">
   <div> 
-    <div  class="form-group">
+    <div  class="form-group"> 
         <label for="EquipoNombre">Nombre</label>
         <input name="EquipoNombre" type="text" [(ngModel)] = "varEquipo.Nombre"  class="form-control col-10">
     </div>
@@ -20,6 +20,10 @@
         <button (click)="setEquipo()" class="btn-primary">Guardar Equipo</button>   
     </div>
   </div>
+  <div class="col-10 bg-secondary">
+      Buscar Equipo:
+      <input type="text" [(ngModel)]="filtroEquipos">
+  </div>
    <div *ngIf="lstEquipos.length > 0 "> 
       <div  class="row bg-primary">
         <div class="col-4">Nombre:</div>
@@ -27,7 +31,7 @@
         <div class="col-3">Socios:</div>
         <div class="col-4">Fundacion:</div> 
       </div>
-      <div *ngFor="let addEquipo of lstEquipos"
+      <div *ngFor="let addEquipo of lstEquipos | teamFilter : filtroEquipos"
         [ngClass]="numSocios(addEquipo.Socios)"
         class="row">
         <div class="col-4">{{addEquipo.Nombre | uppercase}}</div>
