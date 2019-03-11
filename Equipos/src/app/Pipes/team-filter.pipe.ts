@@ -9,5 +9,4 @@ export class TeamFilterPipe implements PipeTransform {
   transform(itemEquipos: Array<Equipo>, filtroNombre?: string): any {
     return itemEquipos.filter(e => e.Nombre.toLocaleLowerCase().indexOf(filtroNombre.toLocaleLowerCase()) !== -1);
   }
-
 }
