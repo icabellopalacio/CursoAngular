@@ -4,5 +4,6 @@ export class Equipo {
         public Nombre: string,
         public Ciudad: string,
         public Socios: number,
-        public Fundacion: Date) {}
+        public Fundacion: Date,
+        public Escudo: string) {}
 }

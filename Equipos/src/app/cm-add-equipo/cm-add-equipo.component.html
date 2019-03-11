@@ -1,5 +1,5 @@
-<div class="jumbotron col-6 mx-auto">
-  <div> 
+<div class="jumbotron col-10 mx-auto">
+  <div clas="form-inline  "> 
     <div  class="form-group"> 
         <label for="EquipoNombre">Nombre</label>
         <input name="EquipoNombre" type="text" [(ngModel)] = "varEquipo.Nombre"  class="form-control col-10">
@@ -10,37 +10,73 @@
     </div>
     <div  class="form-group">
         <label for="EquipoSocios" >Nº Socios</label>
-        <input name="EquipoSocios" type="number" [(ngModel)] = "varEquipo.Socios" class="form-control col-3">
+        <input name="EquipoSocios" type="number" [(ngModel)] = "varEquipo.Socios" class="form-control col-2">
     </div>
     <div  class="form-group">
         <label for="EquipoFundacion">Fundación</label>
-        <input name="EquipoFundacion" type="date" class="date" [(ngModel)] = "varEquipo.Fundacion" class="form-control col-4">
+        <input name="EquipoFundacion" type="date" class="date" [(ngModel)] = "varEquipo.Fundacion" class="form-control col-2">
+    </div>
+    <div  class="form-group">
+        <label for="Escudo">Escudo</label>
+        <input name="Escudo" type="text" class="text" [(ngModel)] = "varEquipo.Escudo" class="form-control col-10">
+    </div>
+    <div  class="form-group">
+      <img src={{varEquipo.Escudo}}>
     </div>
     <div>
-        <button (click)="setEquipo()" class="btn-primary">Guardar Equipo</button>   
-    </div>
+        <button (click)="setEquipo()" class="btn-primary m-1">Guardar Equipo</button>   
+    </div>  
   </div>
-  <div class="col-10 bg-secondary">
-      Buscar Equipo:
-      <input type="text" [(ngModel)]="filtroEquipos">
-  </div>
-   <div *ngIf="lstEquipos.length > 0 "> 
-      <div  class="row bg-primary">
-        <div class="col-4">Nombre:</div>
-        <div class="col-4">Cuidad:</div>
-        <div class="col-3">Socios:</div>
-        <div class="col-4">Fundacion:</div> 
+   <div *ngIf="lstEquipos.length > 0 " class="col-12 border border-primary  m-2"> 
+      <div class="col-12">
+          Buscar Equipo:
+          <input type="text" [(ngModel)]="filtroEquipos">
       </div>
-      <div *ngFor="let addEquipo of lstEquipos | teamFilter : filtroEquipos"
-        [ngClass]="numSocios(addEquipo.Socios)"
-        class="row">
-        <div class="col-4">{{addEquipo.Nombre | uppercase}}</div>
-        <div class="col-4">{{addEquipo.Ciudad}}</div>
-        <div class="col-3">{{addEquipo.Socios | number:'1.0-0'}}</div>
-        <div class="col-4">{{addEquipo.Fundacion | date: 'sort'}}</div>
-     </div>
+      
+      <div class="row col-12">
+          <div  class="col-9  col-xs-12">
+              <div  class="row bg-primary m-2 col-11 text-light">
+                  <div class="col-3">Nombre:</div>
+                  <div class="col-3">Cuidad:</div>
+                  <div class="col-3">Socios:</div>
+                  <div class="col-3">Fundacion:</div> 
+                </div>
+                <div *ngFor="let addEquipo of lstEquipos | teamFilter : filtroEquipos"  
+                  [ngClass]="numSocios(addEquipo.Socios)"
+                  class="row col-11 m-2 "
+                  (click)="showDetail(addEquipo)"
+                  style="cursor:pointer"> 
+                  <div class="col-3">{{addEquipo.Nombre | uppercase}}</div>
+                  <div class="col-3">{{addEquipo.Ciudad}}</div>
+                  <div class="col-3">{{addEquipo.Socios | number:'1.0-0':'es'}}</div>
+                  <div class="col-3">{{addEquipo.Fundacion | date: 'dd/ll/yyy'}}</div>
+               </div>
+          </div>
+          <div class="col-3 col-xs-12 row border border-secondary mb-2" *ngIf="(lstEquipos | teamFilter : filtroEquipos).indexOf(selEquipo) !== -1 && selEquipo">
+              <div  class="col-12"> 
+                  <label>Nombre:</label>
+                  <label class="font-weight-bold ml-2"> {{selEquipo.Nombre}}</label>
+              </div>
+              <div  class="col-12"> 
+                  <label>Ciudad</label>
+                  <label class="font-weight-bold ml-2"> {{selEquipo.Ciudad}}</label>
+              </div>
+              <div class="col-12"> 
+                  <label>Nº Socios</label>
+                  <label class="font-weight-bold ml-2"> {{selEquipo.Socios | number:'1.0-0':'es'}}</label>
+              </div>
+              <div class="col-12"> 
+                  <label>Fundación</label>
+                  <label class="font-weight-bold ml-2"> {{selEquipo.Fundacion | date: 'dd/ll/yyy'}}</label>
+              </div>
+              <div  class="col-12"> 
+                <img src={{selEquipo.Escudo}}>
+              </div>
+          </div>
+      </div>
+     
   </div> 
-  <div *ngIf="lstEquipos.length === 0 ">
+  <div *ngIf="lstEquipos.length === 0 " class="col-12 border border-primary  m-2">
     No hay EquipoSocios
   </div> 
   

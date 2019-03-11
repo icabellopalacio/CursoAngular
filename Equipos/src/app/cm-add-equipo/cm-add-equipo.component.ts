@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Equipo } from '../Models/Equipo';
-
+import es from '@angular/common/locales/es';
+import {registerLocaleData} from '@angular/common';
 @Component({
   selector: 'app-cm-add-equipo',
   templateUrl: './cm-add-equipo.component.html',
@@ -12,10 +13,12 @@ export class CmAddEquipoComponent implements OnInit {
    varEquipo: Equipo;
    lstEquipos: Array<Equipo>;
    filtroEquipos: string;
+   selEquipo: Equipo;
   constructor() { }
 
   ngOnInit() {
-    this.varEquipo = new Equipo('', '', null, null);
+    registerLocaleData(es);
+    this.varEquipo = new Equipo('', '', null, null, '');
     this.lstEquipos = [];
     this.filtroEquipos = '';
   }
@@ -23,15 +26,19 @@ export class CmAddEquipoComponent implements OnInit {
   setEquipo() {
     if (this.varEquipo.Nombre !== '' && this.varEquipo.Ciudad !== '' && this.varEquipo.Socios > 0) {
       this.lstEquipos.push(this.varEquipo);
-      this.varEquipo = new Equipo('', '', null, null);
+      this.varEquipo = new Equipo('', '', null, null, '');
     }
   }
 
   numSocios(parNumSocios: number ): string {
     console.log(parNumSocios);
     if (parNumSocios > 1000) {
-          return 'muchosSocios';
+          return 'bg-secondary text-light';
        }
+  }
+
+  showDetail(itemDetail: Equipo) {
+    this.selEquipo = itemDetail;
   }
 
 }
