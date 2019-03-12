@@ -1,32 +1,32 @@
 <div class="jumbotron col-10 mx-auto">
-  <div clas="form-inline  "> 
+  <form [formGroup]="frmEquipos" clas="form-inline  "> 
     <div  class="form-group"> 
         <label for="EquipoNombre" class="label label-default">Nombre</label>
-        <input name="EquipoNombre" type="text" [(ngModel)] = "varEquipo.Nombre"  class="form-control col-10">
+        <input name="EquipoNombre" type="text" formControlName="Nombre"  class="form-control col-10">
     </div>
     <div  class="form-group">
         <label for="EquipoCiudad" class="label label-default">Ciudad</label>
-        <input name="EquipoCiudad" type="text" [(ngModel)] = "varEquipo.Ciudad" class="form-control col-10">
+        <input name="EquipoCiudad" type="text"  formControlName="Ciudad" class="form-control col-10">
     </div>
     <div  class="form-group">
         <label for="EquipoSocios"  class="label label-default">Nº Socios</label>
-        <input name="EquipoSocios" type="number" [(ngModel)] = "varEquipo.Socios" class="form-control col-2">
+        <input name="EquipoSocios" type="number" formControlName="Socios" class="form-control col-2">
     </div>
     <div  class="form-group">
         <label for="EquipoFundacion" class="label label-default">Fundación</label>
-        <input name="EquipoFundacion" type="date" class="date" [(ngModel)] = "varEquipo.Fundacion" class="form-control col-2">
+        <input name="EquipoFundacion" type="date" class="date"  formControlName="Fundacion" class="form-control col-2">
     </div>
     <div  class="form-group">
         <label for="Escudo" class="label label-default">Escudo</label>
-        <input name="Escudo" type="text" class="text" [(ngModel)] = "varEquipo.Escudo" class="form-control col-10">
+        <input name="Escudo" type="text" class="text"  formControlName="Escudo" class="form-control col-10">
     </div>
     <div  class="form-group"  *ngIf="varEquipo.Escudo">
-      <img [src]="varEquipo.Escudo" [title]="varEquipo.Nombre" [alt]="varEquipo.Nombre"  class="img-fluid img-thumbnail Max-width 100%">
+      <img [src]="frmEquipos.get('Escudo')" [title]="frmEquipos.get('Nombre')" [alt]="frmEquipos.get('Nombre')"  class="img-fluid img-thumbnail Max-width 100%">
     </div>
     <div  class="form-group">
         <button (click)="setEquipo()" class="btn-primary">Guardar Equipo</button>   
     </div>  
-  </div>
+  </form>
    <div *ngIf="lstEquipos.length > 0 " class="col-12 border border-primary rounded m-2"> 
       <div class="col-12 mt-2">
           
@@ -60,7 +60,7 @@
                 <img [src]=selEquipo.Escudo  [title]="varEquipo.Nombre" [alt]="varEquipo.Nombre"  class="img-fluid img-thumbnail Max-width 100%">
               </div>
               <div  class="col-12"> 
-                  <label>Nombre:</label>
+                  <label>Nombre</label>
                   <label class="font-weight-bold ml-2"> {{selEquipo.Nombre}}</label>
               </div>
               <div  class="col-12"> 
