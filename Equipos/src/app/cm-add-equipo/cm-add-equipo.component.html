@@ -56,7 +56,8 @@
                   <div class="col-3 border-left border-primary">{{addEquipo.Fundacion | date: 'dd/ll/yyy'}}</div>
                </div>
           </div>
-          <div class="col-3 col-xs-12 row border border-secondary mb-2" *ngIf="(lstEquipos | teamFilter : filtroEquipos).indexOf(selEquipo) !== -1 && selEquipo">
+          <div class="col-3 col-xs-12 row border border-secondary rounded mb-2 mt-2 " 
+               *ngIf="selEquipo  && (lstEquipos | teamFilter : filtroEquipos).indexOf(selEquipo) !== -1">
               <div  class="col-12"> 
                   <label>Nombre:</label>
                   <label class="font-weight-bold ml-2"> {{selEquipo.Nombre}}</label>
