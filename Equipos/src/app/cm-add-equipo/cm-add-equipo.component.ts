@@ -33,7 +33,7 @@ export class CmAddEquipoComponent implements OnInit {
   numSocios(parNumSocios: number ): string {
     console.log(parNumSocios);
     if (parNumSocios > 1000) {
-          return 'bg-secondary text-light';
+          return 'bg-secondary text-light border-left border-primary';
        }
   }
 

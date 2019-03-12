@@ -27,29 +27,33 @@
         <button (click)="setEquipo()" class="btn-primary m-1">Guardar Equipo</button>   
     </div>  
   </div>
-   <div *ngIf="lstEquipos.length > 0 " class="col-12 border border-primary  m-2"> 
-      <div class="col-12">
-          Buscar Equipo:
-          <input type="text" [(ngModel)]="filtroEquipos">
+   <div *ngIf="lstEquipos.length > 0 " class="col-12 border border-primary rounded m-2"> 
+      <div class="col-12 mt-2">
+          
+          <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text"  class="form-control" [(ngModel)]="filtroEquipos" placeholder="Buscar Equipo">
+          </div>
+          
       </div>
       
       <div class="row col-12">
           <div  class="col-9  col-xs-12">
               <div  class="row bg-primary m-2 col-11 text-light">
-                  <div class="col-3">Nombre:</div>
-                  <div class="col-3">Cuidad:</div>
-                  <div class="col-3">Socios:</div>
-                  <div class="col-3">Fundacion:</div> 
+                  <div class="col-3 ">Nombre:</div>
+                  <div class="col-3 border-left border-light">Cuidad:</div>
+                  <div class="col-3 border-left border-light">Socios:</div>
+                  <div class="col-3 border-left border-light">Fundacion:</div> 
                 </div>
                 <div *ngFor="let addEquipo of lstEquipos | teamFilter : filtroEquipos"  
                   [ngClass]="numSocios(addEquipo.Socios)"
-                  class="row col-11 m-2 "
+                  class="row col-11 ml-2 mb-2"
                   (click)="showDetail(addEquipo)"
                   style="cursor:pointer"> 
                   <div class="col-3">{{addEquipo.Nombre | uppercase}}</div>
-                  <div class="col-3">{{addEquipo.Ciudad}}</div>
-                  <div class="col-3">{{addEquipo.Socios | number:'1.0-0':'es'}}</div>
-                  <div class="col-3">{{addEquipo.Fundacion | date: 'dd/ll/yyy'}}</div>
+                  <div class="col-3 border-left border-primary">{{addEquipo.Ciudad}}</div>
+                  <div class="col-3 border-left border-primary">{{addEquipo.Socios | number:'1.0-0':'es'}}</div>
+                  <div class="col-3 border-left border-primary">{{addEquipo.Fundacion | date: 'dd/ll/yyy'}}</div>
                </div>
           </div>
           <div class="col-3 col-xs-12 row border border-secondary mb-2" *ngIf="(lstEquipos | teamFilter : filtroEquipos).indexOf(selEquipo) !== -1 && selEquipo">
@@ -76,7 +80,7 @@
       </div>
      
   </div> 
-  <div *ngIf="lstEquipos.length === 0 " class="col-12 border border-primary  m-2">
+  <div *ngIf="lstEquipos.length === 0 " class="col-12 border border-primary rounded  m-2">
     No hay EquipoSocios
   </div> 
   
