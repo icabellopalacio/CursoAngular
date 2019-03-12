@@ -1,27 +1,27 @@
 <div class="jumbotron col-10 mx-auto">
   <div clas="form-inline  "> 
     <div  class="form-group"> 
-        <label for="EquipoNombre">Nombre</label>
+        <label for="EquipoNombre" class="label label-default">Nombre</label>
         <input name="EquipoNombre" type="text" [(ngModel)] = "varEquipo.Nombre"  class="form-control col-10">
     </div>
     <div  class="form-group">
-        <label for="EquipoCiudad">Ciudad</label>
+        <label for="EquipoCiudad" class="label label-default">Ciudad</label>
         <input name="EquipoCiudad" type="text" [(ngModel)] = "varEquipo.Ciudad" class="form-control col-10">
     </div>
     <div  class="form-group">
-        <label for="EquipoSocios" >Nº Socios</label>
+        <label for="EquipoSocios"  class="label label-default">Nº Socios</label>
         <input name="EquipoSocios" type="number" [(ngModel)] = "varEquipo.Socios" class="form-control col-2">
     </div>
     <div  class="form-group">
-        <label for="EquipoFundacion">Fundación</label>
+        <label for="EquipoFundacion" class="label label-default">Fundación</label>
         <input name="EquipoFundacion" type="date" class="date" [(ngModel)] = "varEquipo.Fundacion" class="form-control col-2">
     </div>
     <div  class="form-group">
-        <label for="Escudo">Escudo</label>
+        <label for="Escudo" class="label label-default">Escudo</label>
         <input name="Escudo" type="text" class="text" [(ngModel)] = "varEquipo.Escudo" class="form-control col-10">
     </div>
-    <div  class="form-group">
-      <img src={{varEquipo.Escudo}} class="img-fluid img-thumbnail Max-width 100%">
+    <div  class="form-group"  *ngIf="varEquipo.Escudo">
+      <img [src]="varEquipo.Escudo" [title]="varEquipo.Nombre" [alt]="varEquipo.Nombre"  class="img-fluid img-thumbnail Max-width 100%">
     </div>
     <div  class="form-group">
         <button (click)="setEquipo()" class="btn-primary">Guardar Equipo</button>   
@@ -56,6 +56,9 @@
           </div>
           <div class="col-3 col-xs-12 row border border-secondary rounded mb-2 mt-2 " 
                *ngIf="selEquipo  && (lstEquipos | teamFilter : filtroEquipos).indexOf(selEquipo) !== -1">
+              <div  class="col-12" > 
+                <img [src]=selEquipo.Escudo  [title]="varEquipo.Nombre" [alt]="varEquipo.Nombre"  class="img-fluid img-thumbnail Max-width 100%">
+              </div>
               <div  class="col-12"> 
                   <label>Nombre:</label>
                   <label class="font-weight-bold ml-2"> {{selEquipo.Nombre}}</label>
@@ -71,9 +74,6 @@
               <div class="col-12"> 
                   <label>Fundación</label>
                   <label class="font-weight-bold ml-2"> {{selEquipo.Fundacion | date: 'dd/ll/yyy'}}</label>
-              </div>
-              <div  class="col-12"class="img-fluid img-thumbnail Max-width 100%" > 
-                <img src={{selEquipo.Escudo}}>
               </div>
           </div>
       </div>

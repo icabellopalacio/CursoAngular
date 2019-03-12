@@ -19,7 +19,10 @@ export class CmAddEquipoComponent implements OnInit {
   ngOnInit() {
     registerLocaleData(es);
     this.varEquipo = new Equipo('', '', null, null, '');
-    this.lstEquipos = [];
+// tslint:disable-next-line: max-line-length
+    this.lstEquipos = [ new Equipo('Athletic club', 'Bilbao', 44100, new Date(1998, 1, 1), 'https://icon-icons.com/icons2/1637/PNG/48/athletic-bilbao_109476.png'),
+// tslint:disable-next-line: max-line-length
+                        new Equipo('F.C. Barcelona', 'Barcelona', 98000, new Date(1999, 1, 1), 'https://icon-icons.com/icons2/1637/PNG/48/barcelona_109494.png') ];
     this.filtroEquipos = '';
   }
 
@@ -31,13 +34,12 @@ export class CmAddEquipoComponent implements OnInit {
   }
 
   numSocios(parNumSocios: number ): string {
-    console.log(parNumSocios);
     if (parNumSocios > 1000) {
           return 'bg-secondary text-light border-left border-primary';
        }
   }
 
-  showDetail(itemDetail: Equipo) {
+  showDetail(itemDetail: Equipo): void {
     this.selEquipo = itemDetail;
   }
 
