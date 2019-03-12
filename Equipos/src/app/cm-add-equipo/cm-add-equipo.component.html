@@ -21,10 +21,10 @@
         <input name="Escudo" type="text" class="text" [(ngModel)] = "varEquipo.Escudo" class="form-control col-10">
     </div>
     <div  class="form-group">
-      <img src={{varEquipo.Escudo}}>
+      <img src={{varEquipo.Escudo}} class="img-fluid img-thumbnail Max-width 100%">
     </div>
-    <div>
-        <button (click)="setEquipo()" class="btn-primary m-1">Guardar Equipo</button>   
+    <div  class="form-group">
+        <button (click)="setEquipo()" class="btn-primary">Guardar Equipo</button>   
     </div>  
   </div>
    <div *ngIf="lstEquipos.length > 0 " class="col-12 border border-primary rounded m-2"> 
@@ -34,9 +34,7 @@
             <span class="fa fa-search form-control-feedback"></span>
             <input type="text"  class="form-control" [(ngModel)]="filtroEquipos" placeholder="Buscar Equipo">
           </div>
-          
       </div>
-      
       <div class="row col-12">
           <div  class="col-9  col-xs-12">
               <div  class="row bg-primary m-2 col-11 text-light">
@@ -74,14 +72,14 @@
                   <label>Fundación</label>
                   <label class="font-weight-bold ml-2"> {{selEquipo.Fundacion | date: 'dd/ll/yyy'}}</label>
               </div>
-              <div  class="col-12"> 
+              <div  class="col-12"class="img-fluid img-thumbnail Max-width 100%" > 
                 <img src={{selEquipo.Escudo}}>
               </div>
           </div>
       </div>
      
   </div> 
-  <div *ngIf="lstEquipos.length === 0 " class="col-12 border border-primary rounded  m-2">
+  <div *ngIf="lstEquipos.length === 0 " class="col-12 border border-primary rounded  m-2 ">
     No hay EquipoSocios
   </div> 
   
