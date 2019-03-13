@@ -12,27 +12,51 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 export class CmAddEquipoComponent implements OnInit {
 
    // Variables
+   // ..................................
    lstEquipos: Array<Equipo>;
    filtroEquipos: string;
    selEquipo: Equipo;
    frmEquipos: FormGroup;
+
+   // Init
+   // ..................................
   constructor(private frmBuilder: FormBuilder) {}
 
   ngOnInit() {
     registerLocaleData(es);
-// tslint:disable-next-line: max-line-length
-    this.lstEquipos = [ new Equipo('Athletic club', 'Bilbao', 44100, new Date(1998, 1, 1), 'https://icon-icons.com/icons2/1637/PNG/48/athletic-bilbao_109476.png'),
-// tslint:disable-next-line: max-line-length
-                        new Equipo('F.C. Barcelona', 'Barcelona', 98000, new Date(1999, 1, 1), 'https://icon-icons.com/icons2/1637/PNG/48/barcelona_109494.png') ];
+    this.lstEquipos = [ new Equipo('Athletic club'
+                                 , 'Bilbao'
+                                 , 44100
+                                 , new Date(1998, 1, 1)
+                                 , 'https://icon-icons.com/icons2/1637/PNG/48/athletic-bilbao_109476.png'),
+                        new Equipo('F.C. Barcelona'
+                                 , 'Barcelona'
+                                 , 98000
+                                 , new Date(1999, 1, 1)
+                                 , 'https://icon-icons.com/icons2/1637/PNG/48/barcelona_109494.png') ];
     this.filtroEquipos = '';
     this.buildForm();
+    this.selEquipo = new Equipo(null, null, null, null, null);
+  }
+  private buildForm() {
+    this.frmEquipos = this.frmBuilder.group({
+      Nombre: ['', Validators.required],
+      Ciudad: ['', Validators.required],
+      Socios: [null, Validators.required],
+      Fundacion: [null , Validators.required],
+      Escudo: ['']
+    });
   }
 
+  // Functions
+   // ..................................
   setEquipo() {
-      let newEquipo: Equipo;
-      newEquipo.Nombre = this.frmEquipos.get('Nombre');
-
-      this.lstEquipos.push( new Equipo(, this.frmEquipos.get('Cuidad'), this.frmEquipos.get('Socios'),this.frmEquipos.get('Fundacion'), this.frmEquipos.get('Escudo')));
+    this.lstEquipos.push(new Equipo(this.frmEquipos.value.Nombre
+                                    , this.frmEquipos.value.Ciudad
+                                    , this.frmEquipos.value.Socios
+                                    , this.frmEquipos.value.Fundacion
+                                    , this.frmEquipos.value.Escudo));
+    this.frmEquipos.reset();
   }
 
   numSocios(parNumSocios: number ): string {
@@ -45,15 +69,6 @@ export class CmAddEquipoComponent implements OnInit {
     this.selEquipo = itemDetail;
   }
 
-  private buildForm() {
-    this.frmEquipos = this.frmBuilder.group({
-      Nombre: ['', Validators.required],
-      Ciudad: ['', Validators.required],
-      Socios: [null, Validators.required],
-      Fundacion: [null ,Validators.required],
-      Escudo: [null, Validators.required]
-    });
-
-  }
+ 
 
 }

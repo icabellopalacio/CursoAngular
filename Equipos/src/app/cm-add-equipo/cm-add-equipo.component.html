@@ -20,14 +20,14 @@
         <label for="Escudo" class="label label-default">Escudo</label>
         <input name="Escudo" type="text" class="text"  formControlName="Escudo" class="form-control col-10">
     </div>
-    <div  class="form-group"  *ngIf="varEquipo.Escudo">
-      <img [src]="frmEquipos.get('Escudo')" [title]="frmEquipos.get('Nombre')" [alt]="frmEquipos.get('Nombre')"  class="img-fluid img-thumbnail Max-width 100%">
+    <div  class="form-group"  *ngIf="frmEquipos.value.Escudo">
+      <img [src]="frmEquipos.value.Escudo" [title]="frmEquipos.get('Nombre')" [alt]="frmEquipos.get('Nombre')"  class="img-fluid img-thumbnail Max-width 100%">
     </div>
-    <div  class="form-group">
-        <button (click)="setEquipo()" class="btn-primary">Guardar Equipo</button>   
+    <div  class="form-group"> 
+        <button (click)="setEquipo()" class="btn-primary" [disabled]="frmEquipos.invalid">Guardar Equipo</button>   
     </div>  
   </form>
-   <div *ngIf="lstEquipos.length > 0 " class="col-12 border border-primary rounded m-2"> 
+   <div *ngIf="lstEquipos.length > 0 "  class="col-12 border border-primary rounded m-2"> 
       <div class="col-12 mt-2">
           
           <div class="form-group has-search">
@@ -54,26 +54,30 @@
                   <div class="col-3 border-left border-primary">{{addEquipo.Fundacion | date: 'dd/ll/yyy'}}</div>
                </div>
           </div>
-          <div class="col-3 col-xs-12 row border border-secondary rounded mb-2 mt-2 " 
-               *ngIf="selEquipo  && (lstEquipos | teamFilter : filtroEquipos).indexOf(selEquipo) !== -1">
+          <div *ngIf="selEquipo && (lstEquipos | teamFilter : filtroEquipos).indexOf(selEquipo) !== -1 " 
+               class="col-3 col-xs-12 row border border-secondary rounded mb-2 mt-2 ">
               <div  class="col-12" > 
-                <img [src]=selEquipo.Escudo  [title]="varEquipo.Nombre" [alt]="varEquipo.Nombre"  class="img-fluid img-thumbnail Max-width 100%">
+                <img [src]="selEquipo.Escudo" 
+                     *ngIf="selEquipo.Escudo"  
+                     [title]="selEquipo.Nombre" 
+                     [alt]="selEquipo.Nombre"  
+                      class="img-fluid img-thumbnail Max-width 100%">
               </div>
               <div  class="col-12"> 
                   <label>Nombre</label>
-                  <label class="font-weight-bold ml-2"> {{selEquipo.Nombre}}</label>
+                  <label class="font-weight-bold ml-2" >{{selEquipo.Nombre}}</label>
               </div>
               <div  class="col-12"> 
                   <label>Ciudad</label>
-                  <label class="font-weight-bold ml-2"> {{selEquipo.Ciudad}}</label>
+                  <label class="font-weight-bold ml-2" >{{selEquipo.Ciudad}}  </label>
               </div>
               <div class="col-12"> 
                   <label>Nº Socios</label>
-                  <label class="font-weight-bold ml-2"> {{selEquipo.Socios | number:'1.0-0':'es'}}</label>
+                  <label class="font-weight-bold ml-2" >{{selEquipo.Socios  | number:'1.0-0':'es'}}</label>
               </div>
               <div class="col-12"> 
                   <label>Fundación</label>
-                  <label class="font-weight-bold ml-2"> {{selEquipo.Fundacion | date: 'dd/ll/yyy'}}</label>
+                  <label class="font-weight-bold ml-2" >{{selEquipo.Fundacion | date: 'dd/ll/yyy'}}</label>
               </div>
           </div>
       </div>
