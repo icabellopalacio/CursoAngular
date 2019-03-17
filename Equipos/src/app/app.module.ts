@@ -6,14 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CmAddEquipoComponent } from './cm-add-equipo/cm-add-equipo.component';
 import { CmHeadEquiposComponent } from './cm-head-equipos/cm-head-equipos.component';
+import { JugadoresComponent } from './jugadores/jugadores.component';
 import { TeamFilterPipe } from './Pipes/team-filter.pipe';
+import { Router } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CmAddEquipoComponent,
     CmHeadEquiposComponent,
-    TeamFilterPipe
+    TeamFilterPipe,
+    JugadoresComponent
   ],
   imports: [
     BrowserModule,
