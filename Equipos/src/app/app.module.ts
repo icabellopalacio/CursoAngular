@@ -8,7 +8,7 @@ import { CmAddEquipoComponent } from './cm-add-equipo/cm-add-equipo.component';
 import { CmHeadEquiposComponent } from './cm-head-equipos/cm-head-equipos.component';
 import { JugadoresComponent } from './jugadores/jugadores.component';
 import { TeamFilterPipe } from './Pipes/team-filter.pipe';
-import { Router } from '@angular/router';
+
 
 
 @NgModule({

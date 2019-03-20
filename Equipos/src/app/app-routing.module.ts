@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CmAddEquipoComponent } from './cm-add-equipo/cm-add-equipo.component';
-import { JugadoresComponent } from './Jugadores/jugadores.component';
+import { JugadoresComponent } from './jugadores/jugadores.component';
 
-const routes: Routes = [];
-
-const appRoutes: Routes = [
+const routes: Routes = [
   {
     path: 'Equipos',
     component: CmAddEquipoComponent
@@ -13,9 +11,12 @@ const appRoutes: Routes = [
   {
     path: 'Jugadores',
     component: JugadoresComponent
+  },
+  {
+    path: '',
+    component: CmAddEquipoComponent
   }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
