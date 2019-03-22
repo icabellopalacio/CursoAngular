@@ -6,8 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CmAddEquipoComponent } from './cm-add-equipo/cm-add-equipo.component';
 import { CmHeadEquiposComponent } from './cm-head-equipos/cm-head-equipos.component';
-import { JugadoresComponent } from './jugadores/jugadores.component';
 import { TeamFilterPipe } from './Pipes/team-filter.pipe';
+import { CmListEquiposComponent } from './cm-list-equipos/cm-list-equipos.component';
+import { CmJugadoresComponent } from './cm-jugadores/cm-jugadores.component';
 
 
 
@@ -17,7 +18,8 @@ import { TeamFilterPipe } from './Pipes/team-filter.pipe';
     CmAddEquipoComponent,
     CmHeadEquiposComponent,
     TeamFilterPipe,
-    JugadoresComponent
+    CmListEquiposComponent,
+    CmJugadoresComponent
   ],
   imports: [
     BrowserModule,

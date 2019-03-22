@@ -13,30 +13,21 @@ export class CmAddEquipoComponent implements OnInit {
 
    // Variables
    // ..................................
-   lstEquipos: Array<Equipo>;
+  itemEquipo: Equipo;
    filtroEquipos: string;
    selEquipo: Equipo;
    frmEquipos: FormGroup;
-
+   lstEquipos: Array<Equipo>;
    // Init
    // ..................................
   constructor(private frmBuilder: FormBuilder) {}
 
   ngOnInit() {
     registerLocaleData(es);
-    this.lstEquipos = [ new Equipo('Athletic club'
-                                 , 'Bilbao'
-                                 , 44100
-                                 , new Date(1998, 1, 1)
-                                 , 'https://icon-icons.com/icons2/1637/PNG/48/athletic-bilbao_109476.png'),
-                        new Equipo('F.C. Barcelona'
-                                 , 'Barcelona'
-                                 , 98000
-                                 , new Date(1999, 1, 1)
-                                 , 'https://icon-icons.com/icons2/1637/PNG/48/barcelona_109494.png') ];
     this.filtroEquipos = '';
     this.buildForm();
     this.selEquipo = new Equipo(null, null, null, null, null);
+    this.lstEquipos = [];
   }
   private buildForm() {
     this.frmEquipos = this.frmBuilder.group({
@@ -52,23 +43,14 @@ export class CmAddEquipoComponent implements OnInit {
    // ..................................
   setEquipo() {
     this.lstEquipos.push(new Equipo(this.frmEquipos.value.Nombre
-                                    , this.frmEquipos.value.Ciudad
-                                    , this.frmEquipos.value.Socios
-                                    , this.frmEquipos.value.Fundacion
-                                    , this.frmEquipos.value.Escudo));
+                                , this.frmEquipos.value.Ciudad
+                                , this.frmEquipos.value.Socios
+                                , this.frmEquipos.value.Fundacion
+                                , this.frmEquipos.value.Escudo));
     this.frmEquipos.reset();
   }
 
-  numSocios(parNumSocios: number ): string {
-    if (parNumSocios > 1000) {
-          return 'bg-secondary text-light border-left border-primary';
-       }
-  }
-
-  showDetail(itemDetail: Equipo): void {
+    showDetail(itemDetail: Equipo): void {
     this.selEquipo = itemDetail;
   }
-
- 
-
 }
