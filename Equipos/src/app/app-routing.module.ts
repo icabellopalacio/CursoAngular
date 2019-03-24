@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CmAddEquipoComponent } from './cm-add-equipo/cm-add-equipo.component';
-import { CmListEquiposComponent}  from './cm-list-equipos/cm-list-equipos.component'
+import { CmJugadoresComponent } from './cm-jugadores/cm-jugadores.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'Jugadores',
-    component:  CmListEquiposComponent
+    component:  CmJugadoresComponent
   },
   {
     path: '',
