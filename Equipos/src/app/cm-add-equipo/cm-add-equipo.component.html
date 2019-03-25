@@ -30,7 +30,6 @@
   <app-cm-list-equipos [newlstEquipo] = "lstEquipos"  (emtEquipo)="showDetail($event)" ></app-cm-list-equipos>
   <div class="card  bg-info text-white col-6 mx-auto"
     *ngIf="selEquipo">
-    {{selEquipo.Escudo}}
     <img class="card-img-top" [src]="selEquipo.Escudo" [alt]="selEquipo.Nombre">
     <div class="card-body">
       <h5 class="card-title">{{selEquipo.Nombre}}</h5> 

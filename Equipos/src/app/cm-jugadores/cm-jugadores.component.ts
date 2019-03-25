@@ -12,6 +12,7 @@ export class CmJugadoresComponent implements OnInit {
   lstEquipos: Array<Equipo>;
   lstJugadores: Array<Jugadores>;
   itemJugadores: Jugadores;
+  selJugador: Jugadores;
   constructor() { }
 
   ngOnInit() {
@@ -21,11 +22,16 @@ export class CmJugadoresComponent implements OnInit {
     ];
     this.lstJugadores = [];
     this.itemJugadores = new Jugadores('', null, '', null);
+    this.selJugador = null;
   }
 
   selectEquipo(equipoSel: Equipo): void {
       this.lstJugadores = this.itemJugadores.getJugadores(equipoSel);
-      console.log(this.lstJugadores);
+      this.selJugador = null;
+  }
+
+  selectJugador(jugadorSel: Jugadores): void {
+    this.selJugador = jugadorSel;
   }
 
 }

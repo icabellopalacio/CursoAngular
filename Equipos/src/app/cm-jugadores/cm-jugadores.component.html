@@ -1,7 +1,7 @@
 <div class="jumbotron col-10 mx-auto">
-  <app-cm-list-equipos [newlstEquipo] = "lstEquipos"  (emtEquipo)="selectEquipo($event)" ></app-cm-list-equipos>
+  <app-cm-list-equipos [newlstEquipo] = "lstEquipos"  (emtEquipo)="selectEquipo($event)" class="col-12" ></app-cm-list-equipos>
   
-  <div class="row col-12 border border-primary rounded m-2" *ngIf="lstJugadores.length > 0 ">
+  <div class="row col-12 border border-primary rounded m-2 bg-secondary " *ngIf="lstJugadores.length > 0 ">
       <div  class="col-12  col-xs-12 mb-2 ml-2  p-0">
         <div  class="row bg-dark text-white  mt-2 col-12 p-0">
               <div class="col-4  mx-auto">Nombre:</div>
@@ -9,10 +9,33 @@
               <div class="col-4 border-left border-light mx-auto">Demarcación:</div>
         </div>
         <div *ngFor="let itemJugador of lstJugadores"  
-                class="row col-12 p-0"> 
+              class="row col-12 p-0 bg-light "
+              (click)="selectJugador(itemJugador)"
+              style="cursor:pointer"> 
                 <div class="col-4 border-bottom border-left border-primary mx-auto">{{itemJugador.Nombre}}</div>
                 <div class="col-4 border-bottom border-left border-primary mx-auto">{{itemJugador.Anhos  | number:'1.0-0':'es'}}</div>
                 <div class="col-4 border-bottom border-left border-right border-primary mx-auto">{{itemJugador.Demarcacion}}</div> 
         </div>
+    </div>
+  </div>
+  <div class="card  bg-info text-white col-6 mx-auto my-2"
+    *ngIf="selJugador">
+    <div class="card-body">
+      <h5 class="card-title">{{selJugador.Nombre}}</h5> 
+      <div class ="row col-12">
+          <div class="col-10  mx-auto">
+              <label class="font-weight-bold m-1" >Años:</label>
+              <label class="font-weight-bold m-1" >{{selJugador.Anhos}}</label>
+          </div>
+          <div class="col-10  mx-auto">
+              <label class="font-weight-bold m-1" >Demarcacion:</label>
+              <label class="font-weight-bold m-1" >{{selJugador.Demarcacion}}</label>
+          </div>
+          <div class="col-10  mx-auto">
+              <label class="font-weight-bold m-1" >Equipo actual:</label>
+              <label class="font-weight-bold m-1" >{{selJugador.equipoActual.Nombre}}</label>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
