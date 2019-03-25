@@ -27,5 +27,27 @@
         <button (click)="setEquipo()" class="btn-primary" [disabled]="frmEquipos.invalid">Guardar Equipo</button>   
     </div>  
   </form>
-  <app-cm-list-equipos [newlstEquipo] = "lstEquipos" ></app-cm-list-equipos>
+  <app-cm-list-equipos [newlstEquipo] = "lstEquipos"  (emtEquipo)="showDetail($event)" ></app-cm-list-equipos>
+  <div class="card  bg-info text-white col-6 mx-auto"
+    *ngIf="selEquipo">
+    {{selEquipo.Escudo}}
+    <img class="card-img-top" [src]="selEquipo.Escudo" [alt]="selEquipo.Nombre">
+    <div class="card-body">
+      <h5 class="card-title">{{selEquipo.Nombre}}</h5> 
+      <div class ="row col-12">
+          <div class="col-10  mx-auto">
+              <label class="font-weight-bold m-1" >Ciudad:</label>
+              <label class="font-weight-bold m-1" >{{selEquipo.Ciudad}}</label>
+          </div>
+          <div class="col-10  mx-auto">
+              <label class="font-weight-bold m-1" >Socios:</label>
+              <label class="font-weight-bold m-1" >{{selEquipo.Socios}}</label>
+          </div>
+          <div class="col-10  mx-auto">
+              <label class="font-weight-bold m-1" >Fundacion:</label>
+              <label class="font-weight-bold m-1" >{{selEquipo.Fundacion}}</label>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>

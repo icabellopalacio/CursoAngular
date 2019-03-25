@@ -26,8 +26,11 @@ export class CmAddEquipoComponent implements OnInit {
     registerLocaleData(es);
     this.filtroEquipos = '';
     this.buildForm();
-    this.selEquipo = new Equipo(null, null, null, null, null);
-    this.lstEquipos = [];
+    this.selEquipo = null;
+    this.lstEquipos = [
+      new Equipo('Athletic CLub', 'Bilbao', 44000, null, null),
+      new Equipo('F.C. Barcelona', 'Barcelona', 98000, null, null),
+    ];
   }
   private buildForm() {
     this.frmEquipos = this.frmBuilder.group({
@@ -51,6 +54,6 @@ export class CmAddEquipoComponent implements OnInit {
   }
 
     showDetail(itemDetail: Equipo): void {
-    this.selEquipo = itemDetail;
-  }
+      this.selEquipo = itemDetail;
+    }
 }

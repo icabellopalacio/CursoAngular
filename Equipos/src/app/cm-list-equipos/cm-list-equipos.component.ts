@@ -13,9 +13,9 @@ export class CmListEquiposComponent implements OnInit {
    // Variables
    // ..................................
    @Input() newlstEquipo: Array<Equipo>;
-   @Output() public emtEquipo = new EventEmitter<any>();
-   filtroEquipos : string;
-    
+   @Output() public emtEquipo = new EventEmitter<Equipo>();
+   filtroEquipos: string;
+
   constructor() { }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class CmListEquiposComponent implements OnInit {
        }
   }
 
-  selectEquipo(equipoSel: Equipo){
+  selectEquipo(equipoSel: Equipo) {
     this.emtEquipo.emit(equipoSel);
   }
 

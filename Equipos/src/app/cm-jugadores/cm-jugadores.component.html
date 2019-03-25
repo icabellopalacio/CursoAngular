@@ -2,17 +2,17 @@
   <app-cm-list-equipos [newlstEquipo] = "lstEquipos"  (emtEquipo)="selectEquipo($event)" ></app-cm-list-equipos>
   
   <div class="row col-12 border border-primary rounded m-2" *ngIf="lstJugadores.length > 0 ">
-      <div  class="col-9  col-xs-12">
-          <div  class="row bg-primary m-2 col-11 text-light">
-              <div class="col-4 ">Nombre:</div>
-              <div class="col-4 border-left border-light">Años:</div>
-              <div class="col-4 border-left border-light">Demarcación:</div>
+      <div  class="col-12  col-xs-12 mb-2 ml-2  p-0">
+        <div  class="row bg-dark text-white  mt-2 col-12 p-0">
+              <div class="col-4  mx-auto">Nombre:</div>
+              <div class="col-4 border-left border-light mx-auto">Años:</div>
+              <div class="col-4 border-left border-light mx-auto">Demarcación:</div>
         </div>
-      <div *ngFor="let itemJugador of lstJugadores"  
-              class="row col-11 ml-2 mb-2"> 
-              <div class="col-4 border-left border-primary">{{itemJugador.Nombre}}</div>
-              <div class="col-4 border-left border-primary">{{itemJugador.Anhos  | number:'1.0-0':'es'}}</div>
-              <div class="col-4 border-left border-primary">{{itemJugador.Demarcacion}}</div> 
-      </div>
+        <div *ngFor="let itemJugador of lstJugadores"  
+                class="row col-12 p-0"> 
+                <div class="col-4 border-bottom border-left border-primary mx-auto">{{itemJugador.Nombre}}</div>
+                <div class="col-4 border-bottom border-left border-primary mx-auto">{{itemJugador.Anhos  | number:'1.0-0':'es'}}</div>
+                <div class="col-4 border-bottom border-left border-right border-primary mx-auto">{{itemJugador.Demarcacion}}</div> 
+        </div>
   </div>
 </div>
