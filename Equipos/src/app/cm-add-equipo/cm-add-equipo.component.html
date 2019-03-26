@@ -21,7 +21,7 @@
         <input name="Escudo" type="text" class="text"  formControlName="Escudo" class="form-control col-10">
     </div>
     <div  class="form-group"  *ngIf="frmEquipos.value.Escudo">
-      <img [src]="frmEquipos.value.Escudo" [title]="frmEquipos.get('Nombre')" [alt]="frmEquipos.get('Nombre')"  class="img-fluid img-thumbnail Max-width 100%">
+      <img *ngIf="frmEquipos.value.Escudo" [src]="frmEquipos.value.Escudo" [title]="frmEquipos.get('Nombre')" [alt]="frmEquipos.get('Nombre')"  class="img-fluid img-thumbnail Max-width 100%">
     </div>
     <div  class="form-group"> 
         <button (click)="setEquipo()" class="btn-primary" [disabled]="frmEquipos.invalid">Guardar Equipo</button>   
@@ -30,7 +30,7 @@
   <app-cm-list-equipos [newlstEquipo] = "lstEquipos"  (emtEquipo)="showDetail($event)" ></app-cm-list-equipos>
   <div class="card  bg-info text-white col-6 mx-auto"
     *ngIf="selEquipo">
-    <img class="card-img-top" [src]="selEquipo.Escudo" [alt]="selEquipo.Nombre">
+    <img class="card-img-top" *ngIf="selEquipo.Escudo" [src]="selEquipo.Escudo" [alt]="selEquipo.Nombre">
     <div class="card-body">
       <h5 class="card-title">{{selEquipo.Nombre}}</h5> 
       <div class ="row col-12">

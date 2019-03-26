@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipo } from '../Models/Equipo';
 import { Jugadores } from '../Models/Jugadores';
+import { EquiposService } from "../Services/EquiposService";
 
 @Component({
   selector: 'app-cm-jugadores',
@@ -13,20 +14,17 @@ export class CmJugadoresComponent implements OnInit {
   lstJugadores: Array<Jugadores>;
   itemJugadores: Jugadores;
   selJugador: Jugadores;
-  constructor() { }
+  constructor(private servEquipos: EquiposService) { }
 
   ngOnInit() {
-    this.lstEquipos = [
-      new Equipo('Athletic Club', 'Bilbao', 44000, null, 'https://www.aupaathletic.com/media/el-club/escudo/escudo-athletic-club-1972.gif'),
-      new Equipo('F.C. Barcelona', 'Barcelona', 98000, null, null),
-    ];
+    this.lstEquipos = this.servEquipos.getListEquipos();
     this.lstJugadores = [];
     this.itemJugadores = new Jugadores('', null, '', null);
     this.selJugador = null;
   }
 
-  selectEquipo(equipoSel: Equipo): void {
-      this.lstJugadores = this.itemJugadores.getJugadores(equipoSel);
+  selectEquipo(nombreEquipo: string): void {
+      this.lstJugadores = this.itemJugadores.getJugadores(this.servEquipos.getEquipo(nombreEquipo));
       this.selJugador = null;
   }
 

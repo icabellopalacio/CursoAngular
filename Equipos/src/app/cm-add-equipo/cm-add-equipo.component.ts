@@ -3,6 +3,7 @@ import { Equipo } from '../Models/Equipo';
 import es from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { EquiposService } from "../Services/EquiposService";
 
 @Component({
   selector: 'app-cm-add-equipo',
@@ -13,24 +14,22 @@ export class CmAddEquipoComponent implements OnInit {
 
    // Variables
    // ..................................
-  itemEquipo: Equipo;
+   itemEquipo: Equipo;
    filtroEquipos: string;
    selEquipo: Equipo;
    frmEquipos: FormGroup;
    lstEquipos: Array<Equipo>;
    // Init
    // ..................................
-  constructor(private frmBuilder: FormBuilder) {}
+  constructor(private frmBuilder: FormBuilder
+            , private servEquipos: EquiposService) {}
 
   ngOnInit() {
     registerLocaleData(es);
     this.filtroEquipos = '';
     this.buildForm();
     this.selEquipo = null;
-    this.lstEquipos = [
-      new Equipo('Athletic CLub', 'Bilbao', 44000, null, null),
-      new Equipo('F.C. Barcelona', 'Barcelona', 98000, null, null),
-    ];
+    this.lstEquipos = this.servEquipos.getListEquipos();
   }
   private buildForm() {
     this.frmEquipos = this.frmBuilder.group({
@@ -45,15 +44,15 @@ export class CmAddEquipoComponent implements OnInit {
   // Functions
    // ..................................
   setEquipo() {
-    this.lstEquipos.push(new Equipo(this.frmEquipos.value.Nombre
-                                , this.frmEquipos.value.Ciudad
-                                , this.frmEquipos.value.Socios
-                                , this.frmEquipos.value.Fundacion
-                                , this.frmEquipos.value.Escudo));
+    this.lstEquipos = this.servEquipos.setEquipo(new Equipo(this.frmEquipos.value.Nombre
+                                                          , this.frmEquipos.value.Ciudad
+                                                          , this.frmEquipos.value.Socios
+                                                          , this.frmEquipos.value.Fundacion
+                                                          , this.frmEquipos.value.Escudo));
     this.frmEquipos.reset();
   }
 
-    showDetail(itemDetail: Equipo): void {
-      this.selEquipo = itemDetail;
+  showDetail(itemDetail: string): void {
+      this.selEquipo = this.servEquipos.getEquipo(itemDetail);
     }
 }
