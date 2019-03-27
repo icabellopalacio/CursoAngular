@@ -12,9 +12,10 @@ namespace webappEquipo.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<string>> getEquiposList()
         {
-            return new string[] { "value1", "value2" };
+            // return  Equipos.getEquiposLit(); 
+            return "";
         }
 
         // GET api/values/5
