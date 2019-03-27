@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipo } from '../Models/Equipo';
 import { Jugadores } from '../Models/Jugadores';
-import { EquiposService } from "../Services/EquiposService";
+import { EquiposService } from '../Services/EquiposService';
 import { JugadoresService } from '../Services/jugadores.service';
 
 @Component({
@@ -26,12 +26,12 @@ export class CmJugadoresComponent implements OnInit {
   }
 
   selectEquipo(nombreEquipo: string): void {
-      this.lstJugadores = this.servJugadores.getJugadores(this.servEquipos.getEquipo(nombreEquipo));
+      this.lstJugadores = this.servJugadores.getListJugadores(this.servEquipos.getEquipo(nombreEquipo));
       this.selJugador = null;
   }
 
-  selectJugador(jugadorSel: Jugadores): void {
-    this.selJugador = jugadorSel;
+  selectJugador(jugadorSelNombre: string): void {
+    this.selJugador = this.servJugadores.getJugador(jugadorSelNombre);
   }
 
 }

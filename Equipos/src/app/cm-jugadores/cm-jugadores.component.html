@@ -10,7 +10,7 @@
         </div>
         <div *ngFor="let itemJugador of lstJugadores"  
               class="row col-12 p-0 bg-light "
-              (click)="selectJugador(itemJugador)"
+              (click)="selectJugador(itemJugador.Nombre)"
               style="cursor:pointer"> 
                 <div class="col-4 border-bottom border-left border-primary mx-auto">{{itemJugador.Nombre}}</div>
                 <div class="col-4 border-bottom border-left border-primary mx-auto">{{itemJugador.Anhos  | number:'1.0-0':'es'}}</div>

@@ -3,7 +3,7 @@ import { Equipo } from '../Models/Equipo';
 import es from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { EquiposService } from "../Services/EquiposService";
+import { EquiposService } from '../Services/EquiposService';
 
 @Component({
   selector: 'app-cm-add-equipo',
@@ -44,11 +44,7 @@ export class CmAddEquipoComponent implements OnInit {
   // Functions
    // ..................................
   setEquipo() {
-    this.lstEquipos = this.servEquipos.setEquipo(new Equipo(this.frmEquipos.value.Nombre
-                                                          , this.frmEquipos.value.Ciudad
-                                                          , this.frmEquipos.value.Socios
-                                                          , this.frmEquipos.value.Fundacion
-                                                          , this.frmEquipos.value.Escudo));
+    this.lstEquipos = this.servEquipos.setEquipo(this.frmEquipos.value);
     this.frmEquipos.reset();
   }
 
