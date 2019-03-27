@@ -13,7 +13,7 @@ export class CmListEquiposComponent implements OnInit {
    // Variables
    // ..................................
    @Input() newlstEquipo: Array<Equipo>;
-   @Output() public emtEquipo = new EventEmitter<Equipo>();
+   @Output() public emtEquipo = new EventEmitter<string>();
    filtroEquipos: string;
 
   constructor() { }
@@ -30,7 +30,7 @@ export class CmListEquiposComponent implements OnInit {
   }
 
   selectEquipo(equipoSel: Equipo) {
-    this.emtEquipo.emit(equipoSel);
+    this.emtEquipo.emit(equipoSel.Nombre);
   }
 
 }

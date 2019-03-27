@@ -9,6 +9,7 @@ export class Jugadores {
 
     getJugadores(itemEquipo: Equipo): Array<Jugadores> {
         let plantilla: Array<Jugadores>;
+        plantilla = [];
         if (itemEquipo.Nombre.indexOf('Athletic') !== -1) {
             plantilla = [
                 new Jugadores('Aritz Aduriz', 37, 'Delantero centro', itemEquipo),
