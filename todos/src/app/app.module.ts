@@ -5,6 +5,8 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { PipeSinTerminarPipe } from './Pipes/pipe-sin-terminar.pipe';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { PipeSinTerminarPipe } from './Pipes/pipe-sin-terminar.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

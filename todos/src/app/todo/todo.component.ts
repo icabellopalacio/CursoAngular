@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todo',
@@ -9,11 +11,21 @@ import { Todo } from './todo';
 export class TodoComponent implements OnInit {
   tareas: Array<Todo>;
   itemToDo: Todo;
-  constructor() { }
+  url: string;
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
+    this.url = 'http://192.168.0.79:8080/todos';
     this.tareas = [] ;
+    this.getTodos().subscribe(tareas => {
+      console.log(tareas);
+      this.tareas = tareas ;
+    } );
     this.itemToDo = new Todo('', false, false);
+  }
+
+  getTodos(): Observable<Array<Todo>>{
+    return this.httpClient.get<Array<Todo>>(this.url);
   }
 
   addToList() {
@@ -29,13 +41,13 @@ export class TodoComponent implements OnInit {
   }
 
   terminarTarea(tareaSel: Todo) {
-    tareaSel.terminado = !tareaSel.terminado;
+    tareaSel.terminada = !tareaSel.terminada;
   }
 
   setStyles(tareaSel: Todo): any {
     return {
       importante: tareaSel.importante,
-      terminada: tareaSel.terminado
+      terminada: tareaSel.terminada
     };
   }
 }
