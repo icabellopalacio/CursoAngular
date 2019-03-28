@@ -1,0 +1,38 @@
+.flex-container{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    width: 100%;
+}
+.divInput{
+    width:30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    padding: 10px;
+    background-color: darkgreen;
+    color: aliceblue;
+    margin: 10px;
+}
+.divList{
+    width:30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    padding: 10px;
+    /* background-color: blue; 
+    color: aliceblue; */
+}
+.divList ul{
+    list-style-type: hiragana;
+    width: 100%;
+    cursor:pointer;
+}
+.importante{
+    Color:red;
+}
+.terminada{
+    Color:blue;
+}

@@ -1,0 +1,29 @@
+<div class="flex-container">
+    <div class="divInput">
+        <input type="text" [(ngModel)]="itemToDo.nombre" >
+        <input type="checkbox" [(ngModel)]="itemToDo.importante">Importante
+        <button (click)="addToList()">Añadir tarea</button>
+    </div>
+    <div class="divList" *ngIf="tareas.length === 0">
+       <p>Empty List</p> 
+    </div>
+    <div class="divList" *ngIf="(tareas | pipeSinTerminar: false).length > 0">
+        <h3>Sin terminar</h3>
+        <ul>
+            <li *ngFor="let tarea of tareas | pipeSinTerminar: false ">
+                <div (click)="terminarTarea(tarea)" 
+                     [ngClass] = "setStyles(tarea)" >{{tarea.nombre}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="divList"  *ngIf="(tareas | pipeSinTerminar: true).length > 0">
+        <h3>Terminados</h3>
+        <ul>
+            <li *ngFor="let tarea of tareas | pipeSinTerminar: true ">
+                <div (click)="terminarTarea(tarea)" 
+                        [ngClass] = "setStyles(tarea)" >{{tarea.nombre}}</div>
+            </li>
+        </ul>
+    </div>
+    
+</div>
