@@ -8,6 +8,7 @@ import { LstAlumnoComponent } from './Controllers/lst-alumno/lst-alumno.componen
 import { AddCursoComponent } from './Controllers/add-curso/add-curso.component';
 import { LstCursoComponent } from './Controllers/lst-curso/lst-curso.component';
 import { AddInscripcionComponent } from './Controllers/add-inscripcion/add-inscripcion.component';
+import { HeadComponent } from './Controllers/head/head.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddInscripcionComponent } from './Controllers/add-inscripcion/add-inscr
     LstAlumnoComponent,
     AddCursoComponent,
     LstCursoComponent,
-    AddInscripcionComponent
+    AddInscripcionComponent,
+    HeadComponent
   ],
   imports: [
     BrowserModule,
