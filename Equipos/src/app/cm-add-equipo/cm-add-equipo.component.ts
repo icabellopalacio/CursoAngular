@@ -36,8 +36,7 @@ export class CmAddEquipoComponent implements OnInit {
       Nombre: ['', Validators.required],
       Ciudad: ['', Validators.required],
       Socios: [null, Validators.required],
-      Fundacion: [null , Validators.required],
-      Escudo: ['']
+      Fundacion: [null , Validators.required]
     });
   }
 

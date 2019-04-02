@@ -1,11 +1,33 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid col-12 pt-2">
   <div class="container">
-    <h1 class="display-3">Fluid jumbo heading</h1>
-    <p class="lead">Jumbo helper text</p>
-    <hr class="my-2">
-    <p>More info</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-    </p>  
+    <h3 class="display-5 text-center">Alta de usuarios</h3>
+    <form [formGroup]="frmAlumnos" clas="form-inline  "> 
+      <div class="row">
+          <div  class="col-6 form-group"> 
+              <label for="AlumnoNombre" class="label label-default">Nombre</label>
+              <input name="AlumnoNombre" type="text" formControlName="Nombre"  class="form-control col-12">
+          </div>
+      </div>
+      <div class="row">
+          <div  class="col-6 form-group"> 
+              <label for="AlumnoAp1" class="label label-default">Apellido 1</label>
+              <input name="AlumnoAp1" type="text" formControlName="Appelido1"  class="form-control col-12">
+          </div>
+          <div  class="col-6 form-group"> 
+              <label for="AlumnoAp2" class="label label-default">Apellido 2</label>
+              <input name="AlumnoAp2" type="text" formControlName="Appelido2"  class="form-control col-12">
+          </div>
+      </div>
+      <div class="row">
+        <div  class="col-4 form-group"> 
+            <label for="AlumnoTelfno" class="label label-default">Teléfono</label>
+            <input name="AlumnoTelfno" type="text" formControlName="Telefono"  class="form-control col-12">
+        </div>
+      </div>
+    </form>
+    <div class="col-12 text-right">
+        <button type="button" class="btn btn-success">Guardar</button>
+    </div>
   </div>
-</div>"
+</div>
+<app-lst-alumno></app-lst-alumno>

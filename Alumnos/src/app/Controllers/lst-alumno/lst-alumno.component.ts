@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Alumno } from 'src/app/Modules/alumno';
 
 @Component({
   selector: 'app-lst-alumno',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lst-alumno.component.css']
 })
 export class LstAlumnoComponent implements OnInit {
-
+  // Variables
+   // ..................................
+  @Input() newlstEquipo: Array<Alumno>;
   constructor() { }
 
   ngOnInit() {
