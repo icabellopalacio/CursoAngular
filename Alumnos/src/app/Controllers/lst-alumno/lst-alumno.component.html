@@ -1,3 +1,17 @@
-<p>
-  lst-alumno works!
-</p>
+<div class="row col-12 my-2">
+    <div  class="row bg-primary col-12 text-light p-0">
+        <div class="col-3 ">Nombre:</div>
+        <div class="col-3 border-left border-light">Nombre:</div>
+        <div class="col-3 border-left border-light">Teléfono:</div>
+    </div>
+    <div *ngFor="let itemAlumno of lstAlumnos | teamFilter : filtroEquipos"  
+            [ngClass]="numSocios(addEquipo.Socios)"
+            class="row col-12 p-0"
+            (click)="selectEquipo(addEquipo)"
+            style="cursor:pointer"> 
+            <div class="col-3 border-bottom border-left border-light">{{itemAlumno.Nombre | uppercase}} {{itemAlumno.Ap1 | uppercase}} {{itemAlumno.Ap2 | uppercase}}</div>
+            <div class="col-3 border-bottom border-left border-light">{{addEquipo.Ciudad}}</div>
+            <div class="col-3 border-bottom border-left border-light">{{addEquipo.Socios | number:'1.0-0':'es'}}</div>
+            <div class="col-3 border-bottom border-left border-right border-light">{{addEquipo.Fundacion | date: 'dd/ll/yyy'}}</div> 
+    </div>
+</div> 

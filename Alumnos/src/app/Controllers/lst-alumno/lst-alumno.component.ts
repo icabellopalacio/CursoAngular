@@ -9,10 +9,11 @@ import { Alumno } from 'src/app/Modules/alumno';
 export class LstAlumnoComponent implements OnInit {
   // Variables
    // ..................................
-  @Input() newlstEquipo: Array<Alumno>;
+  @Input() lstAlumnos: Array<Alumno>;
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
